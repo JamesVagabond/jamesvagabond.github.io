@@ -1,0 +1,69 @@
+<html>
+<title>Authorization</title>
+<link rel="stylesheet" type="text/css" href="Global.css">
+<body>
+
+<script>
+
+var xhttp = new XMLHttpRequest(), pointer;
+
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    //Сохраним "указатель" на XML-данные для использования в иных функциях.
+    pointer = this;
+  }
+}
+
+xhttp.open("GET", "UserInfo.xml", true);
+xhttp.send();
+
+function Validate() {
+  var xmlDoc = pointer.responseXML;
+  var login = document.forms["MainForm"]["LG"].value;
+  var pw = document.forms["MainForm"]["PW"].value;
+  var i = 0;
+  //Временные переменные для хранения логинов и паролей из UserInfo.xml.
+  var lgt, pwt;
+  var searching = true;
+
+  while (searching) {
+    //Сравниваем введённые логин и пароль с имеющимися в UserInfo.xml.
+    try {
+      tlg = xmlDoc.getElementsByTagName("Login")[i].childNodes[0].nodeValue;
+      tpw = xmlDoc.getElementsByTagName("Password")[i].childNodes[0].nodeValue;
+
+      if (login == tlg && pw == tpw) {
+        searching = false;
+      }
+      i++;
+    }
+    catch(error) {
+      break;
+    }
+  }
+
+  if (searching == false) {
+    document.getElementById("access").innerHTML = "<a href=\"Main.html\">Перейти к сайту.</a>";
+  } else {
+    alert("Неверный логин или пароль.");
+    document.getElementById("access").innerHTML = "";
+  }
+
+}
+
+</script>
+
+<form name="MainForm">
+<b>Имя пользователя: </b><br><input type="text" name="LG" size="30">
+<br><br>
+<b>Пароль: </b><br><input type="password" name="PW" size="30">
+<hr>
+<input type="button" value="Ввести данные" onClick="Validate();">
+</form>
+
+<hr>
+
+<p id="access"></p>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Groups xsi:noNamespaceSchemaLocation="file:///D:/Documents/Финуниверситет/3%20курс/3%20курс%20-%20Лехмус/Сборник%20(курс.%20+%20контр.%20работы)/Курсовая/Groups-schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+ <Group>
+  <GroupID>11БИ</GroupID>
+  <Students>
+   <Student>
+    <StudentID>100.28/160001</StudentID>
+    <Surname>Смирнов</Surname>
+    <Name>Николай</Name>
+    <Patronymic>Алексеевич</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160002</StudentID>
+    <Surname>Алексеева</Surname>
+    <Name>Виктория</Name>
+    <Patronymic>Николаевна</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160003</StudentID>
+    <Surname>Макеев</Surname>
+    <Name>Виктор</Name>
+    <Patronymic>Вениаминович</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160004</StudentID>
+    <Surname>Баширов</Surname>
+    <Name>Андрей</Name>
+    <Patronymic>Олегович</Patronymic>
+   </Student>
+  </Students>
+ </Group>
+
+ <Group>
+  <GroupID>12БИ</GroupID>
+  <Students>
+   <Student>
+    <StudentID>100.28/160005</StudentID>
+    <Surname>Волкова</Surname>
+    <Name>Анастасия</Name>
+    <Patronymic>Семёновна</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160006</StudentID>
+    <Surname>Виноградов</Surname>
+    <Name>Алексей</Name>
+    <Patronymic>Павлович</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160007</StudentID>
+    <Surname>Осипов</Surname>
+    <Name>Валерий</Name>
+    <Patronymic>Семёнович</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160008</StudentID>
+    <Surname>Тихонов</Surname>
+    <Name>Владимир</Name>
+    <Patronymic>Степанович</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160009</StudentID>
+    <Surname>Карпова</Surname>
+    <Name>Анастасия</Name>
+    <Patronymic>Александровна</Patronymic>
+   </Student>
+   <Student>
+    <StudentID>100.28/160010</StudentID>
+    <Surname>Антонов</Surname>
+    <Name>Дмитрий</Name>
+    <Patronymic>Анатольевич</Patronymic>
+   </Student>
+  </Students>
+ </Group>
+
+</Groups>
+
+
+

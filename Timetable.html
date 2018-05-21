@@ -1,0 +1,88 @@
+<html>
+<title>Доступность преподавателей</title>
+<link rel="stylesheet" type="text/css" href="Global.css">
+<body>
+
+<script>
+
+var xhttp = new XMLHttpRequest(), pointer;
+
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myFunction(this);
+    //Сохраним "указатель" на XML-данные для использования в иных функциях.
+    pointer = this;
+  }
+}
+
+xhttp.open("GET", "Availability.xml", true);
+xhttp.send();
+
+//Первым делом нам нужно предоставить возможность выбора преподавателя, расписание которого запрашивается пользователем.
+function myFunction(xml) {
+  var xmlDoc = xml.responseXML;
+  //Временная переменная tmp, которая должна иметь некое значение для запуска цикла while.
+  var tmp = "s";
+  var i = 0;
+  //Переменная txt по окончанию работы ф-ии будет содержать в себе весь необходимый HTML код.
+  //Помним, что некоторые символы (такие как ") необходимо дополнять символом "\", чтобы они считались не частью кода, а частью строки.
+  var txt = "<b>Выберите преподавателя: <form name=\"Main\"></b><select name=\"LecturerName\"><option value=\"\">";
+  while (tmp) {
+    //Пробуем заполнить переменную tmp. Если это приведёт к выходу за рамки массива, прекращаем работу цикла.
+    try {
+      tmp = xmlDoc.getElementsByTagName("Name")[i].childNodes[0].nodeValue;
+    }
+    catch(error) {
+      break;
+    }
+    txt += "<option value=\"" + tmp + "\">" + tmp;
+    i++;
+  }
+  txt += "</select>";
+  //Осталось добавить кнопку, по нажатию которой будет сформировано расписание.
+  txt += "<br><br><input type=\"button\" value=\"Вывести расписание присутствия\" onClick=\"javascript:makeTimetable()\;\"></form><hr>";
+  document.getElementById("target").innerHTML = txt;
+}
+
+function makeTimetable() {
+  var xmlDoc = pointer.responseXML;
+  //Установим, для какого преподавателя готовится ведомость.
+  var lecturer = document.forms["Main"]["LecturerName"].value;
+  var i = 0;
+
+  //В переменную txt будут заноситься все интересующие нас данные.
+  var txt = "<b>Преподаватель: " + lecturer + "<br></b>";
+
+  //Найдём индекс, указывающий на выбранного пользователем преподавателя.
+  while (true) {
+    if (lecturer == xmlDoc.getElementsByTagName("Name")[i].childNodes[0].nodeValue) {
+      break;
+    }
+    i++;
+  }
+
+  //Теперь мы можем приступить к заполнению переменной txt.
+  var j = 3;
+  while (true) {
+  	try {
+  	  txt += xmlDoc.getElementsByTagName("Lecturer")[i].childNodes[j].childNodes[0].nodeValue + "<br>";
+  	  j += 2;
+  	}
+  	catch(error) {
+  	  break;
+  	}
+  }
+
+  //Наконец, разместим результат работы ф-ии в отведённую под него часть страницы.
+  //При этом мы не перезаписываем результаты, выведенные прошлыми вызовами ф-ии.
+  document.getElementById("timetable").innerHTML += txt + "<br>";
+}
+
+</script>
+
+<p id="target"></p>
+
+<p id="timetable"></p>
+
+</body>
+</html>

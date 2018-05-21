@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Users>
+
+ <User>
+  <Login>PopovVI</Login>
+  <Password>hunter2</Password>
+ </User>
+ <User>
+  <Login>IvanovaDG</Login>
+  <Password>17031989</Password>
+ </User>
+ <User>
+  <Login>SemenovEA</Login>
+  <Password>surfking</Password>
+ </User>
+ <User>
+  <Login>AntonovaMF</Login>
+  <Password>antonovamf</Password>
+ </User>
+ <User>
+  <Login>admin</Login>
+  <Password>admin</Password>
+ </User>
+
+</Users>
+
+
+
+
+

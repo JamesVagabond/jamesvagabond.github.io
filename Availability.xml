@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Lecturers>
+
+ <Lecturer>
+  <Name>Гомзин С. А.</Name>
+  <Time>Среда, 14:00-16:00</Time>
+  <Time>Суббота, 11:00-13:00</Time>
+ </Lecturer>
+ <Lecturer>
+  <Name>Юсупов В. Г.</Name>
+  <Time>Вторник, 12:00-16:00</Time>
+  <Time>Пятница, 11:00-12:00</Time>
+ </Lecturer>
+ <Lecturer>
+  <Name>Шаронова С. А.</Name>
+  <Time>Понедельник, 11:00-15:00</Time>
+ </Lecturer>
+ <Lecturer>
+  <Name>Сулейманов А. Д.</Name>
+  <Time>Вторник, 10:00-14:00</Time>
+  <Time>Четверг, 10:00-14:00</Time>
+  <Time>Пятница, 10:00-11:00</Time>
+  <Time>Суббота, 12:00-15:00</Time>
+ </Lecturer>
+ <Lecturer>
+  <Name>Стёпин Ю. В.</Name>
+  <Time>Среда, 16:00-20:00</Time>
+  <Time>Четверг, 12:00-16:00</Time>
+ </Lecturer>
+
+</Lecturers>
+
+
+
+
+
+

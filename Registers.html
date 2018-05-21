@@ -1,0 +1,117 @@
+﻿<html>
+<title>Ведомости</title>
+<link rel="stylesheet" type="text/css" href="Global.css">
+<body>
+
+<script>
+
+var xhttp = new XMLHttpRequest(), pointer;
+
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myFunction(this);
+    //Сохраним "указатель" на XML-данные для использования в иных функциях.
+    pointer = this;
+  }
+}
+
+xhttp.open("GET", "Groups.xml", true);
+xhttp.send();
+
+//Первым делом нам нужно предоставить возможность выбора группы, для которой готовится ведомость.
+function myFunction(xml) {
+  var xmlDoc = xml.responseXML;
+  //Временная переменная tmp, которая должна иметь некое значение для запуска цикла while.
+  var tmp = "s";
+  var i = 0;
+  //Переменная txt по окончанию работы ф-ии будет содержать в себе весь необходимый HTML код.
+  //Помним, что некоторые символы (такие как ") необходимо дополнять символом "\", чтобы они считались не частью кода, а частью строки.
+  var txt = "<b>Выберите группу: <form name=\"Main\"></b><select name=\"GroupID\"><option value=\"\">";
+  while (tmp) {
+    //Пробуем заполнить переменную tmp. Если это приведёт к выходу за рамки массива, прекращаем работу цикла.
+    try {
+      tmp = xmlDoc.getElementsByTagName("GroupID")[i].childNodes[0].nodeValue;
+    }
+    catch(error) {
+      break;
+    }
+    txt += "<option value=\"" + tmp + "\">" + tmp;
+    i++;
+  }
+  txt += "</select>";
+  //Осталось добавить кнопку, по нажатию которой будет сформирована ведомость.
+  txt += "<br><br><input type=\"button\" value=\"Подготовить групповую ведомость\" onClick=\"javascript:makeRegister()\;\"></form><hr>";
+  document.getElementById("target").innerHTML = txt;
+}
+
+function makeRegister() {
+  var xmlDoc = pointer.responseXML;
+  //Установим, для какой группы готовится ведомость.
+  var group = document.forms["Main"]["GroupID"].value;
+  var i = 0;
+
+  //В переменной txt к концу работы ф-ии будет содержаться таблица для ведомости.
+  var txt = "<table table align=center border=2 cellspacing=2 cellpadding=2><tr><th>Дата зачёта/экзамена</th><th>Название дисциплины</th><th>ФИО преподавателя</th></tr>"+
+      //В первую ячейку (<td></td>) поместим пробел, чтобы пустые ячейки не были автоматически сжаты.
+      //Тэг <pre> указывает, что его содержимое должно быть отображено в том виде, в котором оно было занесено в файл, без какого-либо форматирования.
+      "<tr><td><pre> </pre></td><td></td><td></td></tr></table><br>";
+
+  txt += "<table align=center border=2 cellspacing=2 cellpadding=2>"+
+	"<tr>"+
+	"<th>Номер</th>"+
+	"<th>Номер зачётной книжки</th>"+
+	"<th>Фамилия</th>"+
+	"<th>Имя</th>"+
+	"<th>Отчество</th>"+
+	"<th>Оценка</th>"+
+	"<th>Подпись преподавателя</th>"+
+	"</tr>";
+
+  //Найдём индекс, указывающий на выбранную пользователем группу.
+  while (true) {
+    if (group == xmlDoc.getElementsByTagName("GroupID")[i].childNodes[0].nodeValue) {
+      break;
+    }
+    i++;
+  }
+
+  //Теперь ряд за рядом начнём формировать ведомость.
+  var j = 1, k = 1, n = 0, tmp = "";
+  while (j < 40) {
+    k = 1;
+    try {
+      tmp = xmlDoc.getElementsByTagName("Students")[i].childNodes[j].childNodes[1].childNodes[0].nodeValue;
+      txt += "<tr>";
+      n++;
+      txt += "<td>" + n + "</td>";
+    }
+    catch(error) { 
+      break;
+    }
+    while (true) {
+      try {
+        tmp = xmlDoc.getElementsByTagName("Students")[i].childNodes[j].childNodes[k].childNodes[0].nodeValue;
+	txt += "<td>" + tmp + "</td>";
+        k += 2;
+      }
+      catch(error) {
+        txt += "<td><td></tr>";
+        break;
+      }
+    }
+    j += 2;
+  }
+
+  //Наконец, поместим готовую ведомость в выделенную под неё часть страницы.
+  txt += "</table>";
+  document.getElementById("register").innerHTML = txt;
+}
+
+</script>
+
+<p id="target"></p>
+
+<p id="register"></p>
+
+</body>
+</html>
