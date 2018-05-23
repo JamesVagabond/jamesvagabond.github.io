@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<title>Паспортные данные</title>
+<title>РџР°СЃРїРѕСЂС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ</title>
 </head>
 
 <body bgcolor=#F0F0F0 text=#000090>
@@ -10,123 +10,123 @@
 
 <SCRIPT LANGUAGE="JavaScript">
 function Capitalise(s) {
-	//Убедимся, что первый символ является заглавным.
-	//Полагаем, что на вход подаётся только одно слово.
+	//РЈР±РµРґРёРјСЃСЏ, С‡С‚Рѕ РїРµСЂРІС‹Р№ СЃРёРјРІРѕР» СЏРІР»СЏРµС‚СЃСЏ Р·Р°РіР»Р°РІРЅС‹Рј.
+	//РџРѕР»Р°РіР°РµРј, С‡С‚Рѕ РЅР° РІС…РѕРґ РїРѕРґР°С‘С‚СЃСЏ С‚РѕР»СЊРєРѕ РѕРґРЅРѕ СЃР»РѕРІРѕ.
     	return s.charAt(0).toUpperCase() + s.substr(1);	
 }
 
 function Complete() {
-        alert("Все данные введены корректно.");      
+        alert("Р’СЃРµ РґР°РЅРЅС‹Рµ РІРІРµРґРµРЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ.");      
 }
 
 function Validate() {
 	var x = document.forms["MainForm"]["Surname"].value;
-	if (x == "") {alert("Не указана фамилия"); return false;}	
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅР° С„Р°РјРёР»РёСЏ"); return false;}	
 
 	var x = document.forms["MainForm"]["Name"].value;
-	if (x == "") {alert("Не указано имя"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅРѕ РёРјСЏ"); return false;}
 
 	var x = document.forms["MainForm"]["Patronymic"].value;
-	if (x == "") {alert("Не указано отчество"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅРѕ РѕС‚С‡РµСЃС‚РІРѕ"); return false;}
 
 	var x = document.forms["MainForm"]["Gender"].value;
-	if (x == "") {alert("Не указан пол"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅ РїРѕР»"); return false;}
 
 	var x = document.forms["MainForm"]["Birthday"].value;
-	if (x == "") {alert("Не указан день рождения"); return false;}
-	if (x.length != 10) {alert("Некорректный формат даты"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅ РґРµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ"); return false;}
+	if (x.length != 10) {alert("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ РґР°С‚С‹"); return false;}
 
 	var x = document.forms["MainForm"]["Birthplace"].value;
-	if (x == "") {alert("Не указано место рождения"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅРѕ РјРµСЃС‚Рѕ СЂРѕР¶РґРµРЅРёСЏ"); return false;}
 
 	var x = document.forms["MainForm"]["Source"].value;
-	if (x == "") {alert("Не указано, кем выдан паспорт"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅРѕ, РєРµРј РІС‹РґР°РЅ РїР°СЃРїРѕСЂС‚"); return false;}
 
 	var x = document.forms["MainForm"]["SourceID"].value;
-	if (x == "") {alert("Не указан код подразделения"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅ РєРѕРґ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ"); return false;}
 
 	var x = document.forms["MainForm"]["SerialNumber"].value;
-	if (x == "") {alert("Не указана серия паспорта"); return false;}
-	if (x.length != 4) {alert("Неверный формат серии паспорта"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅР° СЃРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°"); return false;}
+	if (x.length != 4) {alert("РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ СЃРµСЂРёРё РїР°СЃРїРѕСЂС‚Р°"); return false;}
 
 	var x = document.forms["MainForm"]["ID"].value;
-	if (x == "") {alert("Не указан номер паспорта"); return false;}
-	if (x.length != 6) {alert("Неверный формат номера паспорта"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅ РЅРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°"); return false;}
+	if (x.length != 6) {alert("РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ РЅРѕРјРµСЂР° РїР°СЃРїРѕСЂС‚Р°"); return false;}
 
 	var x = document.forms["MainForm"]["Location"].value;
-	if (x == "") {alert("Не указано место проживания"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅРѕ РјРµСЃС‚Рѕ РїСЂРѕР¶РёРІР°РЅРёСЏ"); return false;}
 
 	var x = document.forms["MainForm"]["Age"].value;
-	if (x == "") {alert("Не указана возрастная категория"); return false;}
+	if (x == "") {alert("РќРµ СѓРєР°Р·Р°РЅР° РІРѕР·СЂР°СЃС‚РЅР°СЏ РєР°С‚РµРіРѕСЂРёСЏ"); return false;}
 
-	alert("Все данные введены корректно.")
+	alert("Р’СЃРµ РґР°РЅРЅС‹Рµ РІРІРµРґРµРЅС‹ РєРѕСЂСЂРµРєС‚РЅРѕ.")
 	return true;
 }
 
 </SCRIPT>
 
-<H1>Введите паспортные данные.</H1>
+<H1>Р’РІРµРґРёС‚Рµ РїР°СЃРїРѕСЂС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ.</H1>
 
-<!--Важно: если в поле onSumbit прописать просто "Validate();", то при наличии хотя бы одной ошибки...-->
-<!--...после вывода оповещения об этом все данные будут стёрты, и потребуется повторный их ввод.-->
-<!--Если же прописать "return Validate();", то такой проблемы не будет.-->
+<!--Р’Р°Р¶РЅРѕ: РµСЃР»Рё РІ РїРѕР»Рµ onSumbit РїСЂРѕРїРёСЃР°С‚СЊ РїСЂРѕСЃС‚Рѕ "Validate();", С‚Рѕ РїСЂРё РЅР°Р»РёС‡РёРё С…РѕС‚СЏ Р±С‹ РѕРґРЅРѕР№ РѕС€РёР±РєРё...-->
+<!--...РїРѕСЃР»Рµ РІС‹РІРѕРґР° РѕРїРѕРІРµС‰РµРЅРёСЏ РѕР± СЌС‚РѕРј РІСЃРµ РґР°РЅРЅС‹Рµ Р±СѓРґСѓС‚ СЃС‚С‘СЂС‚С‹, Рё РїРѕС‚СЂРµР±СѓРµС‚СЃСЏ РїРѕРІС‚РѕСЂРЅС‹Р№ РёС… РІРІРѕРґ.-->
+<!--Р•СЃР»Рё Р¶Рµ РїСЂРѕРїРёСЃР°С‚СЊ "return Validate();", С‚Рѕ С‚Р°РєРѕР№ РїСЂРѕР±Р»РµРјС‹ РЅРµ Р±СѓРґРµС‚.-->
 
 <FORM NAME="MainForm" onSubmit="return Validate();">
 <TABLE>
-<TR><TD><B>Фамилия:</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>Р¤Р°РјРёР»РёСЏ:</B></TD><TD><INPUT TYPE="text" 
         NAME="Surname" SIZE="25" 
 	onChange="this.value=Capitalise(this.value);"></TD></TR>
 
-<TR><TD><B>Имя:</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>РРјСЏ:</B></TD><TD><INPUT TYPE="text" 
         NAME="Name" SIZE="25"
 	onChange="this.value=Capitalise(this.value);"></TD></TR>
 
-<TR><TD><B>Отчество:</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>РћС‚С‡РµСЃС‚РІРѕ:</B></TD><TD><INPUT TYPE="text" 
         NAME="Patronymic" SIZE="25"
 	onChange="this.value=Capitalise(this.value);"></TD></TR>
 
-<TR><TD><B>Пол:</B></TD><TD><select name="Gender">
+<TR><TD><B>РџРѕР»:</B></TD><TD><select name="Gender">
 	<option value="">
-        <option value="М">М
-	<option value="Ж">Ж
+        <option value="Рњ">Рњ
+	<option value="Р–">Р–
 </select></TD></TR>
 
-<TR><TD><B>Дата рождения (dd.mm.yyyy):</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ (dd.mm.yyyy):</B></TD><TD><INPUT TYPE="text" 
         NAME="Birthday" SIZE="25"></TD></TR>
 
-<TR><TD><B>Место рождения:</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>РњРµСЃС‚Рѕ СЂРѕР¶РґРµРЅРёСЏ:</B></TD><TD><INPUT TYPE="text" 
         NAME="Birthplace" SIZE="25"></TD></TR>
 
-<TR><TD><B>Кем выдан:</B></TD><TD><select name="Source">
+<TR><TD><B>РљРµРј РІС‹РґР°РЅ:</B></TD><TD><select name="Source">
 	<option value="">
-        <option value="1">Отделом УФМС России по Республике Башкортостан в Демском районе города Уфы
-	<option value="2">Отделом УФМС России по Республике Башкортостан в Советском районе города Уфы
-	<option value="3">Отделом УФМС России по Республике Башкортостан в Октябрьском районе города Уфы
+        <option value="1">РћС‚РґРµР»РѕРј РЈР¤РњРЎ Р РѕСЃСЃРёРё РїРѕ Р РµСЃРїСѓР±Р»РёРєРµ Р‘Р°С€РєРѕСЂС‚РѕСЃС‚Р°РЅ РІ Р”РµРјСЃРєРѕРј СЂР°Р№РѕРЅРµ РіРѕСЂРѕРґР° РЈС„С‹
+	<option value="2">РћС‚РґРµР»РѕРј РЈР¤РњРЎ Р РѕСЃСЃРёРё РїРѕ Р РµСЃРїСѓР±Р»РёРєРµ Р‘Р°С€РєРѕСЂС‚РѕСЃС‚Р°РЅ РІ РЎРѕРІРµС‚СЃРєРѕРј СЂР°Р№РѕРЅРµ РіРѕСЂРѕРґР° РЈС„С‹
+	<option value="3">РћС‚РґРµР»РѕРј РЈР¤РњРЎ Р РѕСЃСЃРёРё РїРѕ Р РµСЃРїСѓР±Р»РёРєРµ Р‘Р°С€РєРѕСЂС‚РѕСЃС‚Р°РЅ РІ РћРєС‚СЏР±СЂСЊСЃРєРѕРј СЂР°Р№РѕРЅРµ РіРѕСЂРѕРґР° РЈС„С‹
 </select></TD></TR>
 
-<TR><TD><B>Код подразделения:</B></TD><TD><select name="SourceID">
+<TR><TD><B>РљРѕРґ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ:</B></TD><TD><select name="SourceID">
 	<option value="">
         <option value="1">020-002
 	<option value="2">020-008
 	<option value="3">020-006
 </select></TD></TR>
 
-<TR><TD><B>Серия паспорта (nnnn):</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р° (nnnn):</B></TD><TD><INPUT TYPE="text" 
         NAME="SerialNumber" SIZE="25"></TD></TR>
 
-<TR><TD><B>Номер паспорта (nnnnnn):</B></TD><TD><INPUT TYPE="text" 
+<TR><TD><B>РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р° (nnnnnn):</B></TD><TD><INPUT TYPE="text" 
         NAME="ID" SIZE="25"></TD></TR>
 
-<TR><TD><B>Место проживания:</B></TD><TD>
-	<!--Для данного пункта на всякий случай выделим больше места.-->
+<TR><TD><B>РњРµСЃС‚Рѕ РїСЂРѕР¶РёРІР°РЅРёСЏ:</B></TD><TD>
+	<!--Р”Р»СЏ РґР°РЅРЅРѕРіРѕ РїСѓРЅРєС‚Р° РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№ РІС‹РґРµР»РёРј Р±РѕР»СЊС€Рµ РјРµСЃС‚Р°.-->
 	<INPUT TYPE="textarea" NAME="Location" STYLE="width:400px; height:40px;"></TD></TR>
 
-<TR><TD><B>Утерян:</B></TD><TD><INPUT TYPE="checkbox"
+<TR><TD><B>РЈС‚РµСЂСЏРЅ:</B></TD><TD><INPUT TYPE="checkbox"
         NAME="Lost"></TD></TR>
 
-<TR><TD><B>Возрастная категория:</B></TD><TD>
-	<!--Одно и то же значение параметра NAME делает возможным выбор только одного пункта.-->
-	<!--Считаем это поле обязательным: если не было выбрано ни одно из значений, будет выведена ошибка.-->  
+<TR><TD><B>Р’РѕР·СЂР°СЃС‚РЅР°СЏ РєР°С‚РµРіРѕСЂРёСЏ:</B></TD><TD>
+	<!--РћРґРЅРѕ Рё С‚Рѕ Р¶Рµ Р·РЅР°С‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂР° NAME РґРµР»Р°РµС‚ РІРѕР·РјРѕР¶РЅС‹Рј РІС‹Р±РѕСЂ С‚РѕР»СЊРєРѕ РѕРґРЅРѕРіРѕ РїСѓРЅРєС‚Р°.-->
+	<!--РЎС‡РёС‚Р°РµРј СЌС‚Рѕ РїРѕР»Рµ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рј: РµСЃР»Рё РЅРµ Р±С‹Р»Рѕ РІС‹Р±СЂР°РЅРѕ РЅРё РѕРґРЅРѕ РёР· Р·РЅР°С‡РµРЅРёР№, Р±СѓРґРµС‚ РІС‹РІРµРґРµРЅР° РѕС€РёР±РєР°.-->  
 	<INPUT TYPE="radio" NAME="Age" VALUE="1">14-20</INPUT>
 	<INPUT TYPE="radio" NAME="Age" VALUE="2">20-45</INPUT>
 	<INPUT TYPE="radio" NAME="Age" VALUE="3">45+</INPUT>
