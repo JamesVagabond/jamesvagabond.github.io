@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<title>Паспортные данные</title>
+</head>
+
+<body bgcolor=#F0F0F0 text=#000090>
+
+<hr size=4 color=#303030>
+
+<SCRIPT LANGUAGE="JavaScript">
+function Capitalise(s) {
+	//Убедимся, что первый символ является заглавным.
+	//Полагаем, что на вход подаётся только одно слово.
+    	return s.charAt(0).toUpperCase() + s.substr(1);	
+}
+
+function Complete() {
+        alert("Все данные введены корректно.");      
+}
+
+function Validate() {
+	var x = document.forms["MainForm"]["Surname"].value;
+	if (x == "") {alert("Не указана фамилия"); return false;}	
+
+	var x = document.forms["MainForm"]["Name"].value;
+	if (x == "") {alert("Не указано имя"); return false;}
+
+	var x = document.forms["MainForm"]["Patronymic"].value;
+	if (x == "") {alert("Не указано отчество"); return false;}
+
+	var x = document.forms["MainForm"]["Gender"].value;
+	if (x == "") {alert("Не указан пол"); return false;}
+
+	var x = document.forms["MainForm"]["Birthday"].value;
+	if (x == "") {alert("Не указан день рождения"); return false;}
+	if (x.length != 10) {alert("Некорректный формат даты"); return false;}
+
+	var x = document.forms["MainForm"]["Birthplace"].value;
+	if (x == "") {alert("Не указано место рождения"); return false;}
+
+	var x = document.forms["MainForm"]["Source"].value;
+	if (x == "") {alert("Не указано, кем выдан паспорт"); return false;}
+
+	var x = document.forms["MainForm"]["SourceID"].value;
+	if (x == "") {alert("Не указан код подразделения"); return false;}
+
+	var x = document.forms["MainForm"]["SerialNumber"].value;
+	if (x == "") {alert("Не указана серия паспорта"); return false;}
+	if (x.length != 4) {alert("Неверный формат серии паспорта"); return false;}
+
+	var x = document.forms["MainForm"]["ID"].value;
+	if (x == "") {alert("Не указан номер паспорта"); return false;}
+	if (x.length != 6) {alert("Неверный формат номера паспорта"); return false;}
+
+	var x = document.forms["MainForm"]["Location"].value;
+	if (x == "") {alert("Не указано место проживания"); return false;}
+
+	var x = document.forms["MainForm"]["Age"].value;
+	if (x == "") {alert("Не указана возрастная категория"); return false;}
+
+	alert("Все данные введены корректно.")
+	return true;
+}
+
+</SCRIPT>
+
+<H1>Введите паспортные данные.</H1>
+
+<!--Важно: если в поле onSumbit прописать просто "Validate();", то при наличии хотя бы одной ошибки...-->
+<!--...после вывода оповещения об этом все данные будут стёрты, и потребуется повторный их ввод.-->
+<!--Если же прописать "return Validate();", то такой проблемы не будет.-->
+
+<FORM NAME="MainForm" onSubmit="return Validate();">
+<TABLE>
+<TR><TD><B>Фамилия:</B></TD><TD><INPUT TYPE="text" 
+        NAME="Surname" SIZE="25" 
+	onChange="this.value=Capitalise(this.value);"></TD></TR>
+
+<TR><TD><B>Имя:</B></TD><TD><INPUT TYPE="text" 
+        NAME="Name" SIZE="25"
+	onChange="this.value=Capitalise(this.value);"></TD></TR>
+
+<TR><TD><B>Отчество:</B></TD><TD><INPUT TYPE="text" 
+        NAME="Patronymic" SIZE="25"
+	onChange="this.value=Capitalise(this.value);"></TD></TR>
+
+<TR><TD><B>Пол:</B></TD><TD><select name="Gender">
+	<option value="">
+        <option value="М">М
+	<option value="Ж">Ж
+</select></TD></TR>
+
+<TR><TD><B>Дата рождения (dd.mm.yyyy):</B></TD><TD><INPUT TYPE="text" 
+        NAME="Birthday" SIZE="25"></TD></TR>
+
+<TR><TD><B>Место рождения:</B></TD><TD><INPUT TYPE="text" 
+        NAME="Birthplace" SIZE="25"></TD></TR>
+
+<TR><TD><B>Кем выдан:</B></TD><TD><select name="Source">
+	<option value="">
+        <option value="1">Отделом УФМС России по Республике Башкортостан в Демском районе города Уфы
+	<option value="2">Отделом УФМС России по Республике Башкортостан в Советском районе города Уфы
+	<option value="3">Отделом УФМС России по Республике Башкортостан в Октябрьском районе города Уфы
+</select></TD></TR>
+
+<TR><TD><B>Код подразделения:</B></TD><TD><select name="SourceID">
+	<option value="">
+        <option value="1">020-002
+	<option value="2">020-008
+	<option value="3">020-006
+</select></TD></TR>
+
+<TR><TD><B>Серия паспорта (nnnn):</B></TD><TD><INPUT TYPE="text" 
+        NAME="SerialNumber" SIZE="25"></TD></TR>
+
+<TR><TD><B>Номер паспорта (nnnnnn):</B></TD><TD><INPUT TYPE="text" 
+        NAME="ID" SIZE="25"></TD></TR>
+
+<TR><TD><B>Место проживания:</B></TD><TD>
+	<!--Для данного пункта на всякий случай выделим больше места.-->
+	<INPUT TYPE="textarea" NAME="Location" STYLE="width:400px; height:40px;"></TD></TR>
+
+<TR><TD><B>Утерян:</B></TD><TD><INPUT TYPE="checkbox"
+        NAME="Lost"></TD></TR>
+
+<TR><TD><B>Возрастная категория:</B></TD><TD>
+	<!--Одно и то же значение параметра NAME делает возможным выбор только одного пункта.-->
+	<!--Считаем это поле обязательным: если не было выбрано ни одно из значений, будет выведена ошибка.-->  
+	<INPUT TYPE="radio" NAME="Age" VALUE="1">14-20</INPUT>
+	<INPUT TYPE="radio" NAME="Age" VALUE="2">20-45</INPUT>
+	<INPUT TYPE="radio" NAME="Age" VALUE="3">45+</INPUT>
+</TD></TR>
+
+<P>
+<TABLE>
+<TR><TD><INPUT TYPE="submit" VALUE="Submit"></TD>
+
+<TD><INPUT TYPE="reset" VALUE="Reset"></TD></TR>
+</TABLE>
+</FORM>
+
+<hr size=4 color=#303030>
+
+</body>
+</html> 
